@@ -5,9 +5,31 @@ import (
 	"net/mail"
 	"log"
 	"os"
+	"fmt"
+
+	"gopkg.in/pg.v5"
 )
 
 func main() {
+	db := pg.Connect(&pg.Options{
+		Addr: "vigil_postgres:5432",
+    User:     "postgres",
+    Password: "",
+    Database: "postgres",
+	})
+
+	var n int
+	_, err := db.QueryOne(pg.Scan(&n), "SELECT 1")
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(n)
+
+	err = db.Close()
+	if err != nil {
+		panic(err)
+	}
+
 	message := email.Message{
 		To: mail.Address{Address: os.Getenv("VIGIL_TO")},
 		Subject: "Golang test",
