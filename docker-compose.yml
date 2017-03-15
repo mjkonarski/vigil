@@ -14,6 +14,10 @@ services:
      - VIGIL_FROM_NAME
      - VIGIL_PASSWORD
      - VIGIL_TO
+     - POSTGRES_HOST
+     - POSTGRES_PORT
+     - POSTGRES_USER
+     - VIGIL_DB
 
     container_name: vigil_app
   postgres:
@@ -21,3 +25,6 @@ services:
     container_name: vigil_postgres
     ports:
      - 5432:5432
+    environment:
+     - POSTGRES_USER
+     - POSTGRES_PASSWORD
