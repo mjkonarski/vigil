@@ -17,5 +17,7 @@ services:
 
     container_name: vigil_app
   postgres:
-    image: "postgres:9.5"
+    image: "postgres:9.6"
     container_name: vigil_postgres
+    ports:
+     - 5432:5432
