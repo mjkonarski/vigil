@@ -14,8 +14,8 @@ services:
      - VIGIL_FROM_NAME
      - VIGIL_PASSWORD
      - VIGIL_TO
-     - POSTGRES_HOST
-     - POSTGRES_PORT
+     - POSTGRES_HOST=vigil_postgres
+     - POSTGRES_PORT=5432
      - POSTGRES_USER
      - VIGIL_DB
 
